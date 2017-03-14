@@ -1,4 +1,4 @@
-Components.ProductList = function() {
+Components.ProductList = (function() {
 
     var context = $('#productsList');
 
@@ -7,6 +7,7 @@ Components.ProductList = function() {
     var Products = {};
 
     var returnPromise = function() {
+        console.log('what');
         return $.ajax({
             url: "/testJson.json"
         })
@@ -33,38 +34,44 @@ Components.ProductList = function() {
 
 
     var setUpList = function() {
-
         returnPromise().done(function(data) {
-            Products = data.Products;
+            Products = data;
+            console.log(Products);
             $.each(Products, function(k, v) {
-                console.log(Products);
                 context.append(productTemplate(Products[k]));
             })
+        })
+        returnPromise().error(function(err) {
+            console.log(err);
         })
     };
 
     var setUpEvents = function() {
-       
-        nodes.$addToBasketBtn.on('click tap', function(e){
+
+        function filter(ID) {
+            return $.grep(Products, function(e) {
+                return e.id == ID; });
+        }
+
+        nodes.$addToBasketBtn.on('click tap', function(e) {
             var ID = $(this).parents().data('id');
-            // add event to obj
-            Products[ID].event = 'add';
-           Global.Basket.updateBasket(Products[ID]);
+
+            var result = filter(ID);
+
+            result.event = 'ADD_PRODUCT_TO_BASKET';
+            console.log(result);
         });
-        nodes.$removeFromBasketBtn.on('click tap', function(e){
+        nodes.$removeFromBasketBtn.on('click tap', function(e) {
             var ID = $(this).parents().data('id');
-            // add event to obj
-            Products[ID].event = 'remove';
-           Global.Basket.updateBasket(Products[ID]);
-        }); 
+
+            var result = filter(ID);
+
+            result.event = 'REMOVE_PRODUCT_FROM_BASKET';
+            console.log(result);
+        });
     }
+
 
     setUpList();
 
-    return {
-        nodes: nodes
-    }
-}
-
-// function alias for basket function only gets called once for some reason? 
-Components.ProductList = Components.ProductList();
+})()

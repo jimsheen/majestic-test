@@ -5,7 +5,6 @@ console.log('header');
 Global.Header = {
     init: function() {
         this.events();
-        this.basketSetup();
     }
 }
 
