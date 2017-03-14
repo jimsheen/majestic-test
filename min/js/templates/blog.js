@@ -1,0 +1,1 @@
+Components.SimpleSlider=function(){var n={test:"test"},o=function(o){this.options=$.extend({},n,o),void 0,this.init()},t=o.prototype;return t.init=function(){void 0},{newSlider:o}},Components.SimpleSlider=Components.SimpleSlider(),Components.Accordion=function(){this.newAccordion=function(){void 0}};var test=0;

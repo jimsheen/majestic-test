@@ -1,0 +1,17 @@
+header {
+  background: blue;
+}
+
+#primaryNavigation ul {
+  list-style: none;
+  display: flex;
+}
+#primaryNavigation ul li {
+  display: inline-block;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+main {
+  background: red;
+}
