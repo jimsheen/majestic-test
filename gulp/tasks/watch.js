@@ -19,7 +19,7 @@ gulp.task('watch', function() {
         }
     });
 
-    gulp.watch(config.defaults.scss.src + '**/*.scss').on('change', function(event) {
+    gulp.watch('src/scss/**/*.scss').on('change', function(event) {
         gulp.start('sass');
     });
 

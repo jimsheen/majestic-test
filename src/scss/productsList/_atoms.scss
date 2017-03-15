@@ -1,0 +1,13 @@
+%productListBtn {
+	border-radius:20px;
+}
+
+%addToBasketBtn {
+	@extend %productListBtn;
+	background: blue;
+}
+
+%removeFromBasketBtn {
+	@extend %productListBtn;
+	background:red;
+}
