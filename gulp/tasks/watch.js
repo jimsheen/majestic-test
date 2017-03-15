@@ -6,13 +6,11 @@ var config = require('../config');
 // Watch for sass and js changes
 gulp.task('watch', function() {
     $.livereload.listen();
-    gulp.watch(config.defaults.js.src + '**/*.js').on('change', function(event) {
-        console.log(event);
-        // config.defaults.watchChanged = true;
+    gulp.watch(`${config.defaults.js.src}**/*.js`).on('change', function(event) {
         config.defaults.watchEvent = event;
 
+        // Check if file changed is a global file and fire relevant taks
         if (event.path.indexOf('global') != -1) {
-            console.log('global ting');
             gulp.start('globalScripts');
         } else {
             gulp.start('scriptCompiler');

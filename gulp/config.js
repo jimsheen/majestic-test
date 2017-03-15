@@ -1,5 +1,6 @@
 var src = 'src/',
     dest = 'min/'
+
 var js = {
     'src': 'src/js/',
     'dest': 'min/js/',
@@ -21,12 +22,21 @@ module.exports = {
         js: js,
         scss: scss,
         watchChanged: false,
-        watchEvent: {}
+        watchEvent: {},
+        isProd : (process.env.NODE_ENV === 'production') ? true : false
+    },
+    globalScripts: {
+        src: [
+            `${js.src}global.js`,
+            `${js.src}global/**/*.js`
+        ],
+        dest: js.dest,
+        outputName : 'global.js'
     },
     libs: {
         sass: {
             src: [
-                './src/libs/**/*.scss'
+                `${libs.scss}**/*.scss`
             ],
             dest: `${libs.dest}/css`
         },
@@ -40,13 +50,12 @@ module.exports = {
         }
 
     },
-    // sass: {
-    //   src: [
-    //     src + '/**/*.scss'
-    //   ],
-    //   outputName: 'moondash.css',
-    //   dest: dest
-    // },
+    sass: {
+      src: [
+        `${scss.src}**/*.scss`
+      ],
+      dest: scss.dest
+    },
     scriptCompiler: {
         home: {
             deps: [

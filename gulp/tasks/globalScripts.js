@@ -4,26 +4,21 @@ var gulpif = require('gulp-if');
 var config = require('../config');
 
 // Bundle all scripts in the global folder
-function globalScripts() {
-    // global environment variable env defined in dev/production tasks
-    var isProd = (process.env.NODE_ENV === 'production') ? true : false;
 
-    console.log(process.env.NODE_ENV);
+gulp.task('globalScripts', function() {
+    var isProd = config.defaults.isProd;
 
-    console.log('isProd = ' + isProd);
+    var GLOBAL_SRC = config.globalScripts.src;
+    var GLOBAL_DEST = config.globalScripts.dest;
+    var OUTPUT_NAME = config.globalScripts.outputName;
 
-
-    gulp.src([config.defaults.js.src + 'global.js', config.defaults.js.src + 'global/**/*.js'], { base: 'src' })
+    gulp.src(GLOBAL_SRC, { base: config.defaults.src })
         .pipe($.sourcemaps.init())
         .pipe($.filelog())
-        .pipe($.concat('global.js'))
+        .pipe($.concat(OUTPUT_NAME))
         .pipe(gulpif(isProd, $.uglify()))
         .pipe(gulpif(isProd, $.stripDebug()))
         .pipe($.sourcemaps.write())
-        .pipe(gulp.dest(config.defaults.js.dest))
+        .pipe(gulp.dest(GLOBAL_DEST))
         .pipe($.livereload());
-}
-
-gulp.task('globalScripts', function() {
-    globalScripts()
 });
