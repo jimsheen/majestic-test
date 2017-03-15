@@ -6,5 +6,3 @@ var Global = {
 }
 var Templates = {};
 var Components = {};
-
-// global code here ???

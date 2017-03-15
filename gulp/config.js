@@ -1,5 +1,6 @@
 var src = 'src/',
     dest = 'min/'
+
 var js = {
     'src': 'src/js/',
     'dest': 'min/js/',
@@ -10,8 +11,8 @@ var scss = {
 }
 
 var libs = {
-    'src' : 'src/libs/',
-    'dest' : 'min/libs'
+    'src': 'src/libs/',
+    'dest': 'min/libs'
 }
 
 module.exports = {
@@ -21,27 +22,40 @@ module.exports = {
         js: js,
         scss: scss,
         watchChanged: false,
-        watchEvent: {}
+        watchEvent: {},
+        isProd : (process.env.NODE_ENV === 'production') ? true : false
     },
-    // foundation: {
-    //     src: js.src + 'libs/foundation/js/foundation/',
-    //     dest: js.dest + 'libs/',
-    //     components: ['accordion', 'dropdown']
-    // },
-    libs: {
+    globalScripts: {
         src: [
-                '!' + js.src + 'libs/foundation/**/*.js',
-                libs.src + '**/*.scss'
-            ],
-        dest: `${libs.dest}/libs.css`
+            `${js.src}global.js`,
+            `${js.src}global/**/*.js`
+        ],
+        dest: js.dest,
+        outputName : 'global.js'
     },
-    // sass: {
-    //   src: [
-    //     src + '/**/*.scss'
-    //   ],
-    //   outputName: 'moondash.css',
-    //   dest: dest
-    // },
+    libs: {
+        sass: {
+            src: [
+                `${libs.src}**/*.scss`
+            ],
+            dest: `${libs.dest}/css`
+        },
+        js: {
+            src: [
+                'src/libs/jquery/**/*.js',
+                'src/libs/foundation/**/foundation.js',
+                'src/libs/foundation/**/*.js'
+            ],
+            dest: `${libs.dest}`
+        }
+
+    },
+    sass: {
+      src: [
+        `${scss.src}**/*.scss`
+      ],
+      dest: scss.dest
+    },
     scriptCompiler: {
         home: {
             deps: [
@@ -53,12 +67,6 @@ module.exports = {
             ]
         },
         blog: {
-            deps: [
-                'components/slider',
-                'components/accordion'
-            ]
-        },
-        test: {
             deps: [
                 'components/slider',
                 'components/accordion'

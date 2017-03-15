@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "",
   "scripts": {
-    "postinstall": "bower install && gulp main-bower-files"
+    "postinstall": "bower install && gulp postInstall"
   },
   "author": "James Sheen",
   "license": "ISC",
@@ -15,6 +15,7 @@
     "gulp-clean": "^0.3.2",
     "gulp-compass": "^2.1.0",
     "gulp-concat": "^2.2.0",
+    "gulp-confirm": "^1.0.5",
     "gulp-cssmin": "^0.1.7",
     "gulp-filelog": "^0.4.1",
     "gulp-flatten": "^0.3.1",
@@ -30,6 +31,7 @@
     "gulp-strip-debug": "^1.1.0",
     "gulp-uglify": "0.3.1",
     "gulp-watch": "^4.3.5",
+    "inquirer": "^3.0.6",
     "motion-ui": "^1.2.2",
     "require-dir": "^0.3.1"
   }

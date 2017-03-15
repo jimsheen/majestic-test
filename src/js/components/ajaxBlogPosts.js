@@ -1,30 +1,20 @@
 Components.ajaxBlogPosts = function() {
 
-    var _self = this;
     getPosts = function() {
 
-        var posts = {};
-        $(function() {
-            $.getJSON('http://public-api.wordpress.com/rest/v1/sites/en.blog.wordpress.com/posts/?number=1&callback=?')
-                .success(function(response) {
-
-                  returnData(response);
-
-                });
-        })
-
+        return $.ajax({
+            url: 'http://public-api.wordpress.com/rest/v1/sites/en.blog.wordpress.com/posts/?number=1&callback=?'
+        });
        
     }
 
-    function blogPosts() {
-       getPosts();
+    handleData = function(data) {
+        console.log(data);
     }
 
-    function returnData(data) {
-        return data;
-    }
+   getPosts().done(function(data) {
+        handleData(data);
+   })
 
-    return {
-        blogPosts : blogPosts
-    }
+
 }

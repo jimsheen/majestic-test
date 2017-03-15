@@ -1,0 +1,19 @@
+%productListBtn {
+	border-radius:20px;
+}
+
+%addToBasketBtn {
+	@extend %productListBtn;
+	background: blue;
+}
+
+%removeFromBasketBtn {
+	@extend %productListBtn;
+	background:red;
+}
+
+%productListHeader {
+	font-size:24px;
+	color:white;
+}
+

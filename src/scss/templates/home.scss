@@ -1,0 +1,5 @@
+@import 'productsList/atoms';
+
+.addToBasket {
+	@extend %addToBasketBtn;
+}  
