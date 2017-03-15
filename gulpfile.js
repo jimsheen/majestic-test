@@ -120,18 +120,6 @@ gulp.task('clean', function() {
 });
 
 
-// // Task to build assets for development
-// gulp.task('dev', function() {
-//     env = 'dev';
-//     return gulp.start('modernizr', 'foundation', 'sassdev', 'scriptCompiler', 'image', 'fonts', 'watch');
-// });
-
-// // Task to build assets for production
-// gulp.task('production', ['clean'], function() {
-//     env = 'prod';
-//     return gulp.start('modernizr', 'foundation', 'sass', 'scriptCompiler', 'image', 'fonts');
-// });
-
 function setEnv(string) {
     var env = 'development';
     if (string === 'prod') {

@@ -10,8 +10,8 @@ var scss = {
 }
 
 var libs = {
-    'src' : 'src/libs/',
-    'dest' : 'min/libs'
+    'src': 'src/libs/',
+    'dest': 'min/libs'
 }
 
 module.exports = {
@@ -23,17 +23,22 @@ module.exports = {
         watchChanged: false,
         watchEvent: {}
     },
-    // foundation: {
-    //     src: js.src + 'libs/foundation/js/foundation/',
-    //     dest: js.dest + 'libs/',
-    //     components: ['accordion', 'dropdown']
-    // },
     libs: {
-        src: [
-                '!' + js.src + 'libs/foundation/**/*.js',
-                libs.src + '**/*.scss'
+        sass: {
+            src: [
+                './src/libs/**/*.scss'
             ],
-        dest: `${libs.dest}/libs.css`
+            dest: `${libs.dest}/css`
+        },
+        js: {
+            src: [
+                'src/libs/jquery/**/*.js',
+                'src/libs/foundation/**/foundation.js',
+                'src/libs/foundation/**/*.js'
+            ],
+            dest: `${libs.dest}`
+        }
+
     },
     // sass: {
     //   src: [

@@ -11,22 +11,28 @@ function compileLibs() {
 
     console.log('isProd = ' + isProd);
 
-    gulp.src(['src/libs/jquery/**/*.js', 'src/libs/foundation/**/foundation.js', 'src/libs/foundation/**/*.js'], { base: config.defaults.src })
+    var JS_SRC = config.libs.js.src
+    var JS_DEST = config.libs.js.dest;
+
+    gulp.src(JS_SRC, { base: config.defaults.src })
         .pipe(gulpif(!isProd, $.sourcemaps.init()))
         .pipe($.filelog())
         .pipe(gulpif(!isProd, $.sourcemaps.write()))
         .pipe(gulpif(isProd, $.uglify()))
         .pipe(gulpif(isProd, $.stripDebug()))
         .pipe($.concat('libs.js'))
-        .pipe(gulp.dest('min/libs/js'));
+        .pipe(gulp.dest(JS_DEST));
 
 
-    gulp.src('./src/libs/**/*.scss')
+    var SASS_SRC = config.libs.sass.src;
+    var SASS_DEST = config.libs.sass.dest;
+
+    gulp.src(SASS_SRC)
         .pipe($.sass().on('error', $.sass.logError))
         .pipe(gulpif(!isProd, $.sourcemaps.init()))
         .pipe($.flatten())
         .pipe(gulpif(!isProd, $.sourcemaps.write()))
-        .pipe(gulp.dest('./min/libs/css'))
+        .pipe(gulp.dest(SASS_DEST))
 
 
 }
