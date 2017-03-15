@@ -21,7 +21,7 @@ npm install will install bower packages and move necessary bower files to the "s
 The development task compiles all scripts and sass into the min folder with sourcemaps
 
 ```
-$gulp dev
+$ gulp dev
 ```
 
 The build task compiles all scripts and sass to the min folder but also runs:
@@ -30,13 +30,13 @@ The build task compiles all scripts and sass to the min folder but also runs:
 	- css minification
 
 ```
-$gulp build
+$ gulp build
 ```
 
 And watch task to watch for changes in both JS and SASS files
 
 ```
-$gulp watch
+$ gulp watch
 ```
 
 
