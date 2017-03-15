@@ -3,6 +3,7 @@
 // Dependencies
 var gulp = require('gulp');
 
+
 // require tasks from dir
 var requireDir = require('require-dir');
 requireDir('./gulp/tasks', { recurse: true });
@@ -13,6 +14,10 @@ function setEnv(string) {
         env = 'production';
     }
 }
+
+gulp.task('postInstall', function() {
+	return gulp.start('mainBowerFiles', 'build');
+})
 
 gulp.task('dev', function() {
     return gulp.start('compileLibs', 'globalScripts', 'scriptCompiler', 'sass');

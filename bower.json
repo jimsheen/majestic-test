@@ -18,7 +18,8 @@
   "dependencies": {
     "foundation": "^5.5.3",
     "jquery": "2.2.4",
-    "bxslider-4": "^4.2.7"
+    "bxslider-4": "^4.2.7",
+    "angular-css": "^1.0.8"
   },
   "resolutions": {
     "jquery": "2.2.4"

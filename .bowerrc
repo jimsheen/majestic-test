@@ -1,5 +1,5 @@
 {
     "scripts": {
-        "postinstall": "gulp main-bower-files"
+        "postinstall": "gulp postInstall"
     }
 }

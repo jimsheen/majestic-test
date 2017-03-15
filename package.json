@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "",
   "scripts": {
-    "postinstall": "bower install && gulp main-bower-files"
+    "postinstall": "bower install && gulp postInstall"
   },
   "author": "James Sheen",
   "license": "ISC",
@@ -30,6 +30,7 @@
     "gulp-strip-debug": "^1.1.0",
     "gulp-uglify": "0.3.1",
     "gulp-watch": "^4.3.5",
+    "inquirer": "^3.0.6",
     "motion-ui": "^1.2.2",
     "require-dir": "^0.3.1"
   }

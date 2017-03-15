@@ -7,10 +7,6 @@ function compileLibs() {
 
     var isProd = (process.env.NODE_ENV === 'production') ? true : false
 
-    console.log(process.env.NODE_ENV);
-
-    console.log('isProd = ' + isProd);
-
     var JS_SRC = config.libs.js.src
     var JS_DEST = config.libs.js.dest;
 
