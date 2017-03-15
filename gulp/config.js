@@ -71,12 +71,6 @@ module.exports = {
                 'components/slider',
                 'components/accordion'
             ]
-        },
-        test: {
-            deps: [
-                'components/slider',
-                'components/accordion'
-            ]
         }
     }
 };
