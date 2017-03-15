@@ -12,9 +12,6 @@ function compileScript(src) {
 
     // if function fired by watch task do not append js.src again
     var changed = config.defaults.watchChanged;
-    console.log('watchChanged var = ' + changed);
-
-    console.log(src);
 
     // declare dependacy array
     var deps = [];
@@ -29,9 +26,6 @@ function compileScript(src) {
     // push template to list of deps (if fired by watch do not append .js again)
     var templateSrc = changed ? 'templates/' + src + '.js' : config.defaults.js.src + 'templates/' + src + '.js'
     deps.push(templateSrc);
-
-    console.log(src + ' dependencies');
-    console.log(deps);
 
     // deps array of newly created path strings
     // conditional gulpif statements depending on env variable
@@ -64,10 +58,10 @@ gulp.task('scriptCompiler', function() {
         filename = filename.slice(0, -3);
 
         compileScript(filename);
+
     } else {
 
         for (var src in config.scriptCompiler) {
-            console.log(`src = ${src}`);
             compileScript(src);
         }
     }
