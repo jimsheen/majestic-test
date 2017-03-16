@@ -8,22 +8,17 @@ var gulp = require('gulp');
 var requireDir = require('require-dir');
 requireDir('./gulp/tasks', { recurse: true });
 
-function setEnv(string) {
-    var env = 'development';
-    if (string === 'prod') {
-        env = 'production';
-    }
-}
-
+// used by bower post install hook
 gulp.task('postInstall', function() {
 	return gulp.start('mainBowerFiles', 'build');
 })
 
 gulp.task('dev', function() {
-    return gulp.start('compileLibs', 'globalScripts', 'scriptCompiler', 'sass');
+    process.env.NODE_ENV = 'development';
+    return gulp.start('compileLibs', 'globalScripts', 'scriptCompiler', 'sass', 'watch');
 })
 
 gulp.task('build', function() {
-    setEnv('prod');
+    process.env.NODE_ENV = 'production';
     return gulp.start('clean', 'compileLibs', 'globalScripts', 'scriptCompiler', 'sass');
 })
