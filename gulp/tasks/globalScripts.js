@@ -6,7 +6,7 @@ var config = require('../config');
 // Bundle all scripts in the global folder
 
 gulp.task('globalScripts', function() {
-    var isProd = config.defaults.isProd;
+    var isProd = (process.env.NODE_ENV === 'production');
 
     var GLOBAL_SRC = config.globalScripts.src;
     var GLOBAL_DEST = config.globalScripts.dest;
