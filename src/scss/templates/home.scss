@@ -1,5 +1,12 @@
-@import 'productsList/atoms';
+@import 'variables';
+@import 'helpers';
 
-.addToBasket {
-	@extend %addToBasketBtn;
-}  
+/**
+*
+* Template specific stuff goes here
+* import specific module prouctList for example
+*
+*/
+
+
+@import 'modules/productList';

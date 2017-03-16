@@ -20,5 +20,5 @@ gulp.task('dev', function() {
 
 gulp.task('build', function() {
     process.env.NODE_ENV = 'production';
-    return gulp.start('clean', 'compileLibs', 'globalScripts', 'scriptCompiler', 'sass');
+    return gulp.start('compileLibs', 'globalScripts', 'scriptCompiler', 'sass');
 })
