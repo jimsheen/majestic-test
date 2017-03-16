@@ -20,15 +20,15 @@ function compileLibs() {
         .pipe(gulp.dest(JS_DEST));
 
 
-    var SASS_SRC = config.libs.sass.src;
-    var SASS_DEST = config.libs.sass.dest;
+    // var SASS_SRC = config.libs.sass.src;
+    // var SASS_DEST = config.libs.sass.dest;
 
-    gulp.src(SASS_SRC)
-        .pipe($.sass().on('error', $.sass.logError))
-        .pipe(gulpif(!isProd, $.sourcemaps.init()))
-        .pipe($.flatten())
-        .pipe(gulpif(!isProd, $.sourcemaps.write()))
-        .pipe(gulp.dest(SASS_DEST))
+    // gulp.src(SASS_SRC)
+    //     .pipe($.sass().on('error', $.sass.logError))
+    //     .pipe(gulpif(!isProd, $.sourcemaps.init()))
+    //     .pipe($.flatten())
+    //     .pipe(gulpif(!isProd, $.sourcemaps.write()))
+    //     .pipe(gulp.dest(SASS_DEST))
 
 
 }

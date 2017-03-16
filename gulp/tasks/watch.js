@@ -3,6 +3,16 @@ var $ = require('gulp-load-plugins')();
 var gulpif = require('gulp-if');
 var config = require('../config');
 
+
+function swallowError(error) {
+    
+    // If you want details of the error in the console
+    console.log(error.toString())
+
+    this.emit('end')
+}
+
+
 // Watch for sass and js changes
 gulp.task('watch', function() {
 
@@ -23,6 +33,6 @@ gulp.task('watch', function() {
 
     gulp.watch(SASS_SRC).on('change', function(event) {
         gulp.start('sass');
-    });
+    }).on('error', swallowError);
 
 });

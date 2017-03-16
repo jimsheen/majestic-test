@@ -36,7 +36,7 @@ module.exports = {
     libs: {
         sass: {
             src: [
-                `${libs.src}**/*.scss`
+                ''
             ],
             dest: `${libs.dest}/css`
         },
