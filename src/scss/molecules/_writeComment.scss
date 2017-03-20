@@ -1,0 +1,12 @@
+.write-comment {
+    margin-top: 24px;
+    &__container {
+        margin-bottom: 12px;
+    }
+    .btn {
+        float: right;
+        @media (max-width: 480px) {
+            width: 100%;
+        }
+    }
+}

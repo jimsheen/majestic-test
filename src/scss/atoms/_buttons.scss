@@ -1,0 +1,28 @@
+.btn {
+    display: inline-block;
+    vertical-align: middle;
+    white-space: nowrap;
+    font-family: inherit;
+    font-size: 100%;
+    cursor: pointer;
+    border: none;
+    margin: 0;
+    border-radius: $borderRadius;
+    padding: 12px 36px;
+    line-height: 1;
+    text-transform: uppercase;
+    font-size: $small;
+    outline:none;
+    &--small {
+        padding: 12px 24px;
+    }
+    &--primary {
+        background: $pink;
+        color: white;
+    }
+    &--secondary {
+        background: white;
+        color: $pink;
+        border:1px solid $pink;
+    }
+}

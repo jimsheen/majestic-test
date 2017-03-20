@@ -1,0 +1,10 @@
+.social-like {
+    span {
+        font-size: $small;
+        margin-left: 12px;
+        display: inline-block;
+    }
+    button {
+    	@extend .btn--primary;
+    }
+}

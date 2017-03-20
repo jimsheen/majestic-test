@@ -14,16 +14,11 @@ gulp.task('sass', function() {
     var SASS_DEST = config.sass.dest;
 
     gulp.src(SASS_SRC)
-        .pipe($.compass({
-            css: SASS_DEST,
-            sass: config.defaults.scss.src
-        }))
-        .on('error', function(error) {
-            // Would like to catch the error here 
-            console.log(error);
-            this.emit('end');
-        })
+        .pipe(gulpif(!isProd, $.sourcemaps.init()))
+        .pipe($.sass().on('error', $.sass.logError))
+        .pipe(gulpif(!isProd, $.sourcemaps.write()))
         .pipe(gulpif(isProd, $.cssmin()))
+        .pipe($.filelog())
         .pipe($.autoprefixer())
         .pipe(gulp.dest(SASS_DEST))
         .pipe($.livereload());

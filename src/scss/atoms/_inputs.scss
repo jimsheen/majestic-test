@@ -1,0 +1,11 @@
+textarea {
+    width: 100%;
+    padding: 24px;
+    color: $darkGrey;
+    font-size:1em;
+    border-radius:$borderRadius;
+    border:1px solid $lightGrey;
+    &:focus {
+    	outline:none;
+    }
+}

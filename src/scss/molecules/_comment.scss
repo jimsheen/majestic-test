@@ -1,0 +1,22 @@
+.comment {
+    list-style: none;
+    margin-bottom: 36px;
+    &__meta,
+    &__body,
+    .social-like,
+    {
+        margin-bottom: 12px;
+    }
+    &__user {
+        color: $pink;
+        font-weight: bold;
+    }
+    &__body {
+        span {
+            display: block;
+            background: $lightGrey;
+            border-radius: $borderRadius;
+            padding: 24px;
+        }
+    }
+}

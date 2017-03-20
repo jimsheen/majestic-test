@@ -43,8 +43,6 @@ module.exports = {
         js: {
             src: [
                 'src/libs/jquery/**/*.js',
-                'src/libs/foundation/**/foundation.js',
-                'src/libs/foundation/**/*.js'
             ],
             dest: `${libs.dest}`
         }
@@ -59,11 +57,7 @@ module.exports = {
     scriptCompiler: {
         home: {
             deps: [
-                'libs/bxslider-4',
-                'components/slider',
-                'components/accordion',
-                'components/ajaxBlogPosts',
-                'components/productList'
+                'components/writeComment',
             ]
         },
         blog: {
